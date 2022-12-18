@@ -178,7 +178,7 @@ class AppController extends GetxController with UpgradeManger {
   @override
   void onReady() {
     // _startForegroundService();
-    autoCheckVersionUpgrade();
+    //autoCheckVersionUpgrade();
     super.onReady();
   }
 

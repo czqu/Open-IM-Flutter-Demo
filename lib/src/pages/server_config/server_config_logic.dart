@@ -24,7 +24,7 @@ class ServerConfigLogic extends GetxController {
     // ipCtrl.text = "x.x.x";
     final hintText = isIP.value ? 'ip' : '域名';
     if (isIP.value) {
-      authCtrl.text = 'http://$hintText:10008';
+      authCtrl.text = 'http://$hintText:10004';
       imApiCtrl.text = 'http://$hintText:10002';
       imWsCtrl.text = 'ws://$hintText:10001';
     } else {
@@ -45,7 +45,7 @@ class ServerConfigLogic extends GetxController {
 
     ipCtrl.addListener(() {
       if (isIP.value) {
-        authCtrl.text = 'http://${ipCtrl.text}:10008';
+        authCtrl.text = 'http://${ipCtrl.text}:10004';
         imApiCtrl.text = 'http://${ipCtrl.text}:10002';
         imWsCtrl.text = 'ws://${ipCtrl.text}:10001';
       } else {

@@ -58,7 +58,7 @@ class Config {
   /// ip
   /// web.rentsoft.cn
   /// test-web.rentsoft.cn
-  static const host = "web.rentsoft.cn";
+  static const host = "alpha.api.im.czqu.net:855";
 
   /// 服务器IP
   static String serverIp() {
@@ -82,7 +82,7 @@ class Config {
       url = server['authUrl'];
       print('缓存authUrl: $url');
     }
-    return url ?? "$apiScheme://$host/chat/";
+    return url ?? "$apiScheme://$host/chat";
   }
 
   /// IM sdk api地址
