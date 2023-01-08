@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' hide MultipartFile, FormData;
 import 'package:openim_demo/src/common/config.dart';
@@ -53,6 +54,17 @@ class HttpUtil {
     dio.options.baseUrl = Config.imApiUrl();
     dio.options.connectTimeout = 30000; //30s
     dio.options.receiveTimeout = 30000;
+    (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
+        (client) {
+      //这一段是解决安卓https抓包的问题
+      client.badCertificateCallback =
+          (X509Certificate cert, String host, int port) {
+        return Platform.isAndroid;
+      };
+      client.findProxy = (uri) {
+        return "PROXY local.czqu.net:9999";
+      };
+    };
   }
 
   ///
